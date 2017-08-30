@@ -1,0 +1,52 @@
+﻿@model IEnumerable<TravelManagementSite.TrainList>
+
+@{
+    ViewBag.Title = "SearchList";
+}
+
+<p style="float:right">
+    @Html.ActionLink("Sign Out", "Index")
+
+    <h2>SearchList</h2>
+   
+    <h4 style="float:right">Welcome @ViewBag.name !!!!!</h4>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.destination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.source)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.destination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date)
+        </td>
+        <td>
+           @Html.ActionLink("Book Ticket", "Book Ticket", new { id = item.id }) |
+    </tr>
+}
+
+</table>
+
+
